@@ -7,9 +7,8 @@ namespace TaskManager.Models
 {
     public class Task : Entity
     {
-        public Task(long idChecklist, string name, ETaskStatus predecessorTaskStatus, DateTime startDate, DateTime endDate)
+        public Task(string name, ETaskStatus predecessorTaskStatus, DateTime startDate, DateTime endDate)
         {
-            this.IdChecklist = idChecklist;
             this.Name = name;
             this.PredecessorTaskStatus = predecessorTaskStatus;
             this.StartDate = startDate;
@@ -17,7 +16,6 @@ namespace TaskManager.Models
             this.Status = ETaskStatus.CREATED;
         }
 
-        public long IdChecklist { get; private set; }
         public string Name { get; private set; }
         public ETaskStatus PredecessorTaskStatus { get; private set; }
         public DateTime StartDate { get; private set; }

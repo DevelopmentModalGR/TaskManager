@@ -203,7 +203,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Handlers\CompanyHandle.cs" />
-    <Compile Include="Models\Checklist.cs" />
     <Compile Include="Models\CheckoutProcess.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Department.cs" />

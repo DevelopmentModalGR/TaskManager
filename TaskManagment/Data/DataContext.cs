@@ -11,13 +11,11 @@ namespace TaskManager.Data
     {
         public DataContext() : base("name=ConexaoSQLServerEntityDemo")
         { }
-
-        public DbSet<User> User { get; set; }
-        public DbSet<Checklist> CheckList { get; set; }
-        public DbSet<CheckoutProcess> CheckOutProcess { get; set; }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Department> Department { get; set; }
-        public DbSet<Profile> Profile { get; set; }
         public DbSet<Task> Task { get; set; }
+        public DbSet<CheckoutProcess> CheckOutProcess { get; set; }        
+        public DbSet<Department> Department { get; set; }
+        public DbSet<Profile> Profile { get; set; }       
+        public DbSet<User> User { get; set; }
+        public DbSet<Company> Company { get; set; }
     }
 }

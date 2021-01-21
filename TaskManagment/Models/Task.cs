@@ -14,6 +14,17 @@ namespace TaskManager.Models
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.Status = ETaskStatus.CREATED;
+            this.Users = new List<User>();
+        }
+        public Task(string name, ETaskStatus predecessorTaskStatus, DateTime startDate, DateTime endDate, List<User> users)
+        {
+            this.Name = name;
+            this.PredecessorTaskStatus = predecessorTaskStatus;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this.Status = ETaskStatus.CREATED;
+            this.Users = new List<User>();
+            this.Users = users;
         }
 
         public string Name { get; private set; }
@@ -21,6 +32,7 @@ namespace TaskManager.Models
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public ETaskStatus Status { get; private set; }
+        public virtual ICollection<User> Users { get; set; }
 
         public void SetStarted()
         {

@@ -20,30 +20,27 @@ namespace TaskManagment
         #region CustomMethods
         public void InitializeDb()
         {
-            Task task = new Task("Pegar a manga e sair correndo", ETaskStatus.CONCLUDED, DateTime.Now, DateTime.Now);
-            List<Task> tasks = new List<Task>();
-            tasks.Add(task);
             Email email = new Email("renato@123.com");
-            Role role = new Role("Administrador");
-            List<Role> roles = new List<Role>();
-            roles.Add(role);
-            Profile profile = new Profile("Consultor", roles);
-            List<Profile> profiles = new List<Profile>();
-            profiles.Add(profile);
             List<Department> departments = new List<Department>();
             departments.AddRange(new List<Department> {
-                new Department("Administração", profiles ),
-                new Department("T.I.",profiles),
+                new Department("Administração"),
+                new Department("T.I."),
             });
-            
+
             ;
             Company company = new Company("ModalGR");
-            User user = new User("Renato", email, DateTime.Now, true,/* departments,*/ profile, company);
-            User user1 = new User("AndrezinhoReiDelas", email, DateTime.Now, true, /*departments,*/ profile, company);
+            User user = new User("Renato", email, DateTime.Now, true, departments, company);
+            User user1 = new User("AndrezinhoReiDelas", email, DateTime.Now, true, departments, company);
             List<User> users = new List<User>();
+            Task task = new Task("Pegar a manga e sair correndo", ETaskStatus.CONCLUDED, DateTime.Now, DateTime.Now, users);
+            Task task2 = new Task("dEU RUIM ", ETaskStatus.CONCLUDED, DateTime.Now, DateTime.Now);
+            List<Task> tasks = new List<Task>();
+            tasks.Add(task); tasks.Add(task2);
             CheckoutProcess checkoutprocess = new CheckoutProcess("Pegar manga no quintal dos outros", departments[1], "pegar a manga ue", DateTime.Now, DateTime.Now, tasks);
             users.AddRange(new List<User> { user, user1 });
-            
+            user1.Tasks = tasks;
+            user.Tasks.Add(task2);
+
 
             //MessageBox.Show(task.Id.ToString());
             //MessageBox.Show(company.ListAllUsers());
@@ -54,10 +51,12 @@ namespace TaskManagment
             db.Company.Add(company);
             db.User.Add(user);
             db.Task.Add(task);
-            db.Department.Add(departments[1]); //db.Department.Add(departments[1]);
-            
+            db.Department.Add(departments[1]); 
             db.SaveChanges();
-            
+            db.Department.Add(departments[0]);
+            db.Task.Add(task2);
+            db.SaveChanges();
+
         }
         #endregion
         public Form1()

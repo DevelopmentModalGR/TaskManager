@@ -7,8 +7,6 @@ namespace TaskManager.Models
 {
    public class CheckoutProcess : Entity
     {
-        private List<Task> tasks;
-
         public CheckoutProcess(string name, Department department, string description, DateTime startDate, DateTime endDate, List<Task> task)
         {
             Name = name;
@@ -16,7 +14,8 @@ namespace TaskManager.Models
             Description = description;
             StartDate = startDate;
             EndDate = endDate;
-            this.tasks = task;
+            this.Tasks = new List<Task>();
+            this.Tasks = task;
         }
 
         public string Name { get; private set; }
@@ -24,7 +23,7 @@ namespace TaskManager.Models
         public string Description { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
-        public List<Task> Tasks { get => tasks; set => Tasks = value; }
+        public virtual ICollection<Task> Tasks { get;  set; }
 
         public bool CheckProcessStatus()
         {

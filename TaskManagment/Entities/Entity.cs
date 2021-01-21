@@ -8,10 +8,12 @@ namespace TaskManager.Entities
     {
         public Entity()
         {
-            Id = Guid.NewGuid().ToString("N").ToUpper();
+            //Id = Guid.NewGuid().ToString("N").ToUpper();
         }
 
-        public string Id { get; private set; }
+       //public string Id { get; private set; }
+
+        public int Id { get; set; }
 
         public bool Equals(Entity other)
         {

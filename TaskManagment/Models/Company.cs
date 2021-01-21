@@ -7,21 +7,21 @@ namespace TaskManager.Models
 {
     public class Company : Entity
     {
-        private List<User> users;
         public Company(string name)
         {
             Name = name;
-            this.users = new List<User>();
+            this.Users = new List<User>();
         }
         public Company(string name, List<User> user)
         {
             Name = name;
-            this.users = user;
+            this.Users = new List<User>();
+            this.Users = user;
         }
 
         #region attributes        
         public string Name { get; private set; }
-        protected List<User> Users { get => users; set => users = value; }
+        public virtual ICollection<User> Users { get; set; }
         #endregion
 
         #region Methods

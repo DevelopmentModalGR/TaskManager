@@ -208,7 +208,6 @@
     <Compile Include="Models\CheckoutProcess.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />

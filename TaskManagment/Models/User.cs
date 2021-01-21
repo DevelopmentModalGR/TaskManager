@@ -9,15 +9,28 @@ namespace TaskManager.Models
 {
     public class User: Entity
     {
-       // private List<Department> departments;
-        public User(string name, Email email, DateTime signUpDate, bool isActive, /*List<Department> department,*/ Profile profile, Company company)
+        public User(string name, Email email, DateTime signUpDate, bool isActive, List<Department> department, Company company)
         {
             Name = name;
             Email = email;
             SignUpDate = signUpDate;
             IsActive = isActive;
-            //this.departments = department;
-            this.Profile = profile;
+            this.Tasks = new List<Task>();
+            this.Departments = new List<Department>();
+            this.Departments = department;
+            Company = company;
+        }
+
+        public User(string name, Email email, DateTime signUpDate, bool isActive, List<Department> department, Company company, List<Task>tasks)
+        {
+            Name = name;
+            Email = email;
+            SignUpDate = signUpDate;
+            IsActive = isActive;
+            this.Departments = new List<Department>();
+            this.Departments = department;
+            this.Tasks = new List<Task>();
+            this.Tasks = tasks;
             Company = company;
         }
 
@@ -26,9 +39,9 @@ namespace TaskManager.Models
         public DateTime SignUpDate { get;  private set; }
         public bool IsActive { get;  private set; }
         public bool IsAdmin { get; private set; }
-        //protected List<Department> Departments { get => departments; set => departments = value; }
-        protected Profile Profile { get; private set; }
-        public Company Company { get; private set; }
+        public virtual ICollection<Department> Departments { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
+        public Company Company { get; private set;}
 
         public override string ToString()
         {

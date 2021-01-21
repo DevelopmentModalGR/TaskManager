@@ -12,10 +12,6 @@ namespace TaskManager.ValueObjects
         {
             RoleName = rolename;
         }
-        public Role()
-        {
-        
-        }
         public string RoleName { get;  set; }
         public override string ToString()
         {

@@ -11,33 +11,24 @@ namespace TaskManager.Models
     {
         private List<Role> collaboratorRoles;
 
-        #region Constructors
-        public Profile(Role role)
-        {
-            this.collaboratorRoles = new List<Role>();
-            collaboratorRoles.Add(role);
-            IsAdmin = false;
-        }
 
-        public Profile(Role role, bool isAdmin)
+        #region Constructors
+        public Profile(string profileName,List<Role> roles /*List<Department> department*/)
         {
             this.collaboratorRoles = new List<Role>();
-            collaboratorRoles.Add(role);
-            IsAdmin = isAdmin;
+            /*this.departments = new List<Department>();*/
+            this.collaboratorRoles = roles;
+            /*this.departments = department;*/
+            Name = profileName;
         }
         #endregion
 
         #region Atributtes
-        public bool  IsAdmin { get; private set; }
-        internal List<Role> CollaboratorRoles { get => collaboratorRoles; set => collaboratorRoles = value; }
+        public string Name { get; set; }
+        protected List<Role> CollaboratorRoles { get => collaboratorRoles; set => collaboratorRoles = value; }
         #endregion
 
-        #region Methods
-        public void SetAsAdmin()
-        {
-            this.IsAdmin = true;
-        }
-
+        #region Methods      
         public void GetAllRoles()
         {
             

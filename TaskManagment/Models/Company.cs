@@ -34,7 +34,7 @@ namespace TaskManager.Models
         {
             return $"{this.Name}";
         }
-        public string ListAllUsers()
+        public string ListAllUsersNames()
         {
             var aux = "";
             int count = 1;

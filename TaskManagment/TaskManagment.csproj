@@ -192,6 +192,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlllers\ProfileController.cs" />
+    <Compile Include="Controlllers\TestsController.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Enums\EProfile.cs" />
@@ -240,5 +242,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
